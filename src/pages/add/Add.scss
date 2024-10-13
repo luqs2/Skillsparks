@@ -1,0 +1,130 @@
+.add {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full height for vertical centering */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0)); /* Subtle gradient background */
+    padding: 20px;
+  
+    .container {
+      width: 100%; /* Responsive width */
+      max-width: 1200px; /* Reduced maximum width for a more compact layout */
+      padding: 30px; /* Reduced padding */
+      background: rgba(255, 255, 255, 0.15); /* Glassmorphism effect */
+      backdrop-filter: blur(15px);
+      border-radius: 15px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      transition: all 0.3s ease;
+  
+      h1 {
+        margin-bottom: 20px;
+        font-size: 24px; /* Reduced size for a more compact heading */
+        color: rgba(50, 50, 50, 0.85); /* Darker color for better contrast */
+        font-weight: 500;
+      }
+  
+      .sections {
+        display: flex;
+        justify-content: space-between;
+        gap: 30px; /* Reduced gap for compactness */
+  
+        label {
+          color: rgba(80, 80, 80, 0.85); /* Softer color for labels */
+          font-size: 16px; /* Slightly smaller font size */
+          font-weight: 400;
+        }
+  
+        .info,
+        .details {
+          flex: 1; /* Equal width for each section */
+          display: flex;
+          flex-direction: column;
+          gap: 15px; /* Consistent spacing between inputs */
+  
+          input,
+          select,
+          textarea {
+            padding: 15px; /* Reduced padding for inputs */
+            font-size: 14px; /* Slightly smaller font size */
+            background: rgba(255, 255, 255, 0.2); /* Light glass effect */
+            border: 1px solid rgba(200, 200, 200, 0.5);
+            border-radius: 10px;
+            color: rgba(50, 50, 50, 0.85); /* Professional text color */
+            transition: box-shadow 0.3s ease, background-color 0.3s ease;
+  
+            &:focus {
+              box-shadow: 0 0 10px rgba(50, 150, 255, 0.5); /* Subtle focus effect */
+              outline: none; /* Remove default outline */
+            }
+          }
+  
+          button {
+            padding: 15px; /* Reduced button padding */
+            font-size: 16px; /* Consistent font size */
+            font-weight: 500;
+            background-color: #1dbf73; /* Modern green */
+            border: none;
+            border-radius: 12px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  
+            &:hover {
+              background-color: #17a562; /* Darker green on hover */
+              box-shadow: 0 8px 30px rgba(23, 165, 98, 0.4); /* Lift effect */
+            }
+          }
+        }
+      }
+    }
+  
+    /* Responsiveness */
+    @media (max-width: 768px) {
+      .container {
+        padding: 20px; /* Reduced padding for tablets */
+        max-width: 90%; /* Make it more flexible on smaller screens */
+      }
+  
+      .sections {
+        flex-direction: column; /* Stack sections for mobile */
+        gap: 20px; /* Adjusted gap for smaller screens */
+      }
+  
+      input,
+      select,
+      textarea {
+        font-size: 14px; /* Smaller font size for mobile */
+        padding: 12px; /* Reduced padding */
+      }
+  
+      button {
+        font-size: 14px; /* Smaller button font size */
+        padding: 10px; /* Reduced button padding */
+      }
+    }
+  
+    @media (max-width: 576px) {
+      .container {
+        padding: 15px; /* Further reduced padding for mobile */
+      }
+  
+      h1 {
+        font-size: 20px; /* Adjusted heading size */
+      }
+  
+      input,
+      select,
+      textarea {
+        font-size: 13px; /* Smaller text */
+        padding: 10px; /* Smaller padding */
+      }
+  
+      button {
+        font-size: 13px; /* Consistent button size */
+        padding: 8px; /* Reduced padding for mobile */
+        width: 100%; /* Full-width button on mobile */
+      }
+    }
+  }
+  

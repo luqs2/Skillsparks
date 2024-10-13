@@ -1,0 +1,29 @@
+.catCard {
+    width: 252px; // Ensure this width fits your slidesToShow configuration
+    height: 344px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+  
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;        
+    }
+  
+    .desc {
+      font-weight: 300;
+      position: absolute;
+      top: 15px;
+      left: 14px;
+    }
+  
+    .title {
+      font-weight: 500;
+      position: absolute;
+      left: 15px;
+      top: 40px;
+    }
+  }
+  

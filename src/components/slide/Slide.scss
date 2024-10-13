@@ -1,0 +1,92 @@
+.slide {
+    display: flex;
+    justify-content: center;
+    padding: 30px 0px; /* Reduced padding for a smaller height */
+    position: relative;
+    z-index: 1;
+
+    .container {
+        width: 80%; /* Reduce the width for smaller size */
+        max-width: 1200px; /* Reduce max-width to make it smaller */
+        position: relative;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        border-radius: 15px; /* Reduced border-radius for a tighter look */
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1); /* Slightly reduced shadow */
+        padding: 15px; /* Reduced padding inside the container */
+        overflow: visible; /* Ensures overflowed content (like buttons) is visible */
+        transition: opacity 0.5s ease, transform 0.5s ease;
+        animation: fadeIn 0.5s ease-in-out; /* Adding fade-in effect */
+    }
+
+    .carousel-prev,
+    .carousel-next {
+        width: 40px; /* Reduce button size */
+        height: 40px; /* Reduce button size */
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(5px);
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: background-color 0.3s ease, opacity 0.5s ease-in-out;
+        z-index: 15; /* Ensure buttons appear above other elements */
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+    }
+
+    .carousel-prev {
+        left: -20px; /* Adjusted for smaller design */
+        padding-left: 15px; /* Smaller padding */
+    }
+
+    .carousel-next {
+        right: -20px; /* Adjusted for smaller design */
+        padding-right: 15px; /* Smaller padding */
+    }
+
+    &.scrolled-up {
+        opacity: 0;
+        transform: translateY(-50px); /* Hide when it touches the navbar */
+        transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    @media (max-width: 768px) {
+        .container {
+            width: 90%;
+            padding: 10px;
+
+            .carousel-prev,
+            .carousel-next {
+                width: 35px; /* Adjusted for smaller screens */
+                height: 35px;
+                left: -15px;
+                right: -15px;
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        .container {
+            padding: 8px;
+
+            .carousel-prev,
+            .carousel-next {
+                width: 30px; /* Further reduced size for smaller screens */
+                height: 30px;
+                left: -10px;
+                right: -10px;
+            }
+        }
+    }
+
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    animation: fadeIn 0.5s ease-in-out; /* Adding fade-in effect */
+}

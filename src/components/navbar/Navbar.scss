@@ -1,0 +1,129 @@
+.navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(240, 147, 223, 0.419);
+    backdrop-filter: blur(9px);
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    width: 100%; // Ensure navbar spans the full width of the viewport
+    transition: 0.5s all ease;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+
+
+
+    &.active{
+        background-color: rgba(163, 9, 127, 0.45);
+  }
+    .container {
+      width: 100%;
+      max-width: 1200px; // Set a maximum width to center the content
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+      align-items: center;
+  
+      .logo {
+        .text {
+          font-size: 24px;
+          font-weight: bold;
+          color: #333;
+        }
+      }
+  
+      .links {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        font-weight: 500;
+
+        .user{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            position: relative;
+
+            img{
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+
+            .options{
+
+                position:absolute;
+                top:50px;
+                right: 0;
+                padding: 20px;
+                background-color: rgba(248, 186, 237, 0.966);
+                border-radius: 10px;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                color: #333;
+                width: 200px;
+                font-weight: 500;
+
+            }
+        }
+  
+        button {
+          color: rgba(103, 250, 255, 0.5);
+          padding: 10px 20px;
+          border-radius: 5px;
+          border: 1px solid rgb(157, 238, 243);
+          cursor: pointer;
+          background-color: rgba(255, 164, 244, 0.3);
+          color: #333;
+          font-weight: 500;
+  
+          &:hover {
+            background-color: rgba(255, 103, 230, 0.5);
+            border-color: rgba(103, 250, 255, 0.5);
+          }
+        }
+      }
+    }
+
+    hr{
+        width: 100%;
+        height: 0;
+        border: 0.5px solid lightblue;
+    }
+  
+    .menu {
+      width: 100%;
+      max-width: 1200px;
+      padding: 10px 0px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+  
+    // Media Query for screens smaller than 768px
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column; // Stack the content vertically on smaller screens
+        align-items: center; // Ensure everything is centered
+        padding: 10px; // Reduce padding for smaller screens
+      }
+  
+      .links {
+        gap: 10px; // Reduce the gap between links on smaller screens
+        flex-direction: column; // Stack links vertically for small screens
+        button {
+          width: 100%; // Ensure buttons take full width on smaller screens
+        }
+      }
+  
+      .menu {
+        flex-direction: column; // Stack the menu vertically on smaller screens
+        width: 100%; // Ensure full width on smaller screens
+      }
+    }
+  }
+  

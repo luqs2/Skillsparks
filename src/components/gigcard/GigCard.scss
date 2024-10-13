@@ -1,0 +1,155 @@
+.gigcard {
+    width: 280px;
+    height: 380px;
+    background: rgba(255, 255, 255, 0.282); /* Glass effect */
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 10px;
+  
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
+    }
+  
+    img {
+      width: 100%;
+      height: 45%;
+      object-fit: cover;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.211);
+    }
+  
+    .info {
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 10px;
+      
+      .user {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          
+          img {
+              width: 32px;
+              height: 32px;
+              border-radius: 50%;
+              object-fit: cover;
+              border: 2px solid rgba(255, 255, 255, 0.4);
+            }
+            
+            span {
+                color: #333;
+                font-size: 14px;
+                font-weight: 500;
+            }
+        }
+        
+        p {
+            color: rgba(49, 47, 47, 0.85);
+            font-size: 12px;
+            line-height: 1.4;
+            margin-bottom: 20px;
+      }
+  
+      .star {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+  
+        img {
+          height: 14px;
+          width: 14px;
+        }
+  
+        span {
+          font-size: 12px;
+          font-weight: bold;
+          color: #ffc108;
+        }
+      }
+    }
+  
+    hr {
+      border: 0.5px solid rgba(177, 173, 173, 0.3);
+    }
+  
+    /* Styling for the details section */
+    .details {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 15px;
+      
+      img {
+        width: 20px; /* Heart icon size */
+        height: 20px;
+        cursor: pointer;
+        object-fit: cover;
+        
+      }
+  
+      .price {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+  
+        span {
+          color: rgba(52, 50, 50, 0.75); /* Subtle light color for 'Starting At' */
+          font-size: 12px;
+        }
+  
+        h2 {
+          color: #5b5a5a; /* Bright white for price */
+          font-size: 18px;
+          font-weight: bold;
+          margin: 0;
+        }
+  
+        sup {
+          font-size: 12px;
+          font-weight: 300;
+          vertical-align: top; /* Aligns the currency symbol */
+        }
+        
+      }
+    }
+  
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      width: 100%; /* Full width on mobile */
+      height: auto;
+  
+      .details {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 10px;
+  
+        .price h2 {
+          font-size: 16px; /* Adjusted font size for mobile */
+        }
+      }
+    }
+  
+    @media (max-width: 480px) {
+      .info .user img {
+        width: 24px;
+        height: 24px;
+      }
+  
+      .details .price h2 {
+        font-size: 14px; /* Smaller price on smaller screens */
+      }
+  
+      .details img {
+        width: 16px; /* Smaller heart icon */
+        height: 16px;
+      }
+    }
+  }
+  

@@ -1,0 +1,155 @@
+.messages {
+    display: flex;
+    justify-content: center;
+    color: #555;
+    padding: 20px;
+  
+    .container {
+      width: 100%;
+      max-width: 1200px; // Makes it responsive by limiting max width
+      padding: 40px 20px;
+      background: rgba(255, 255, 255, 0.15); // Glassmorphism background
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); // Subtle shadow for depth
+      border-radius: 16px;
+      backdrop-filter: blur(10px); // Frosted glass effect
+      -webkit-backdrop-filter: blur(10px); // For Safari
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      overflow-x: auto; // Ensures it doesn’t break on smaller screens
+  
+      .title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+  
+        button {
+          background-color: #1dbf73;
+          color: white;
+          font-weight: 500;
+          border: none;
+          padding: 12px 20px;
+          border-radius: 8px; // Rounded button
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+  
+          &:hover {
+            background-color: #17a666; // Slightly darker on hover
+          }
+        }
+      }
+  
+      table {
+        width: 100%;
+        border-collapse: collapse;
+  
+        th, td {
+          padding: 15px;
+          text-align: left;
+        }
+  
+        th {
+          font-weight: bold;
+          font-size: 16px;
+          color: #333;
+        }
+  
+        td {
+          font-size: 14px;
+          color: #555;
+  
+          sup {
+              font-size: 10px; // Reduced size for superscripts
+              color: #888;
+            }
+            
+            .image {
+                width: 50px;
+                height: 50px;
+                object-fit: cover;
+                border-radius: 8px;
+        }
+        
+        .message {
+            width: 25px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            
+            &:hover {
+                transform: scale(1.1); // Enlarge slightly on hover
+            }
+            
+            
+        }
+          button {
+            background-color: rgba(221, 55, 193, 0.7);
+            color: #fff;
+            font-weight: 600;
+            padding: 12px 25px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    
+            &:hover {
+                background-color: rgba(221, 55, 193, 0.85);
+              box-shadow: 0px 4px 20px rgba(232, 43, 229, 0.4);
+            }
+        }
+        }
+  
+        tr {
+          transition: background-color 0.3s ease;
+          &:active{
+            background-color: rgba(197, 10, 138, 0.795); 
+          }
+          
+  
+          &:hover {
+              background-color: rgba(255, 255, 255, 0.2); // Slight hover effect for rows
+          }
+        }
+      }
+    }
+  
+    @media (max-width: 768px) {
+      .container {
+        padding: 20px 10px;
+      }
+  
+      table {
+        th, td {
+          font-size: 12px;
+          padding: 10px;
+        }
+  
+        .image {
+          width: 40px;
+          height: 40px;
+        }
+      }
+    }
+  
+    @media (max-width: 480px) {
+      .container {
+        padding: 15px 5px;
+      }
+  
+      .title button {
+        padding: 10px 15px;
+        font-size: 14px;
+      }
+  
+      table {
+        th, td {
+          font-size: 11px;
+          padding: 8px;
+        }
+  
+        .image {
+          width: 35px;
+          height: 35px;
+        }
+      }
+    }
+  }
+  
