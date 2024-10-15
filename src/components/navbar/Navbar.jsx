@@ -19,7 +19,7 @@ const Navbar = () => {
     };
   }, []);
 
-  // Simulating the current user (logged in state)
+  // Simulating the current user (logged in state) update fix login button 
   const currentUser = {
     id: 1,
     username: 'luqs',
