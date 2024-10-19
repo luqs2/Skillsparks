@@ -43,9 +43,9 @@ const Navbar = () => {
         </Link>
 
         <div className="links">
-          <Link className="link">Skillspark Business</Link>
-          <Link className="link">Explore</Link>
-          <Link className="link">English</Link>
+          <Link className="link"></Link>
+          <Link className="link">Available Gig</Link>
+          <Link className="link">Become Provider</Link>
 
           {/* Conditionally render "Sign in" if currentUser is not defined */}
           {!currentUser && <Link className="link" to="/Login">Sign in</Link>}
