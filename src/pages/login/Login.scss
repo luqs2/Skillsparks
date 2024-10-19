@@ -1,0 +1,126 @@
+// Variables for consistency in design
+$primary-color: rgba(50, 50, 50, 0.85);
+$bg-color: rgba(255, 255, 255, 0.15);
+$shadow-color: rgba(0, 0, 0, 0.15);
+$border-radius: 20px;
+$blur: 10px;
+$accent-color: rgba(221, 55, 193, 0.7);
+
+.login-wrapper {
+  height: 100vh; // Full viewport height for centering
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur($blur);
+  background-color: $bg-color;
+  box-shadow: 0 4px 30px $shadow-color;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 40px;
+  border-radius: $border-radius;
+  width: 100%;
+  max-width: 400px;
+  color: $primary-color;
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: $primary-color;
+    }
+
+    label {
+      font-size: 1.3rem;
+      margin-bottom: 9px;
+      color: $primary-color;
+    }
+
+    input {
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: $border-radius;
+      border: thin;
+      background-color: rgba(255, 255, 255, 0.3);
+      color: $primary-color;
+      font-size: 1.2rem;
+
+      &:focus {
+        outline: none;
+        background-color: rgba(255, 255, 255, 0.5);
+      }
+    }
+
+    .error {
+      color: red;
+      margin-bottom: 20px;
+      font-size: 0.9rem;
+    }
+
+    button {
+      padding: 12px;
+      border: none;
+      border-radius: $border-radius;
+      background-color: $accent-color;
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: darken($accent-color, 10%);
+      }
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .login {
+    padding: 30px;
+  }
+
+  form {
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    input {
+      font-size: 0.9rem;
+    }
+
+    button {
+      font-size: 1rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .login {
+    padding: 20px;
+  }
+
+  form {
+    h1 {
+      font-size: 1.2rem;
+    }
+
+    input {
+      font-size: 0.8rem;
+    }
+
+    button {
+      font-size: 0.9rem;
+    }
+  }
+}

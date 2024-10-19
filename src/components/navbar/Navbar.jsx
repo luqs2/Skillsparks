@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Navbar.scss';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import newRequest from '../../utils/newRequest';
 
 const Navbar = () => {
   const [active, setActive] = useState(false);
@@ -20,11 +21,17 @@ const Navbar = () => {
   }, []);
 
   // Simulating the current user (logged in state) update fix login button 
-  const currentUser = {
-    id: 1,
-    username: 'luqs',
-    isSeller: true,
-  };
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"))
+
+  const handleLogout = async () => {
+    try {
+      await newRequest.post("/auth/logout");
+      localStorage.setItem("currentUser", null);
+      navigate("/");
+    } catch (err) {
+      console.log(err);
+    }
+   };
 
   return (
     <div className={active || pathname !== '/' ? 'navbar active' : 'navbar'}>
@@ -41,14 +48,16 @@ const Navbar = () => {
           <Link className="link">English</Link>
 
           {/* Conditionally render "Sign in" if currentUser is not defined */}
-          {!currentUser && <Link className="link">Sign in</Link>}
+          {!currentUser && <Link className="link" to="/Login">Sign in</Link>}
 
           {!currentUser?.isSeller && <span>Become seller</span>}
+          <Link to="/Register">
           {!currentUser && <button>Join</button>}
+          </Link>         
           {currentUser && (
             <div className="user" onClick={() => setOpen(!open)}>
               <img
-                src="https://s3.getstickerpack.com/storage/uploads/sticker-pack/albedo-genshin-impact/sticker_13.png?336a5d28db123a4f57123615273a08d1&d=200x200"
+                src={currentUser?.img || "./Public/img/noavatar.png"}
                 alt="user profile"
               />
               <span>{currentUser?.username}</span>
@@ -70,7 +79,7 @@ const Navbar = () => {
                   <Link className="link" to="/messages">
                     Messages
                   </Link>
-                  <Link className="link" to="/logout">
+                  <Link className="link" onClick={handleLogout}>
                     Logout
                   </Link>
                 </div>

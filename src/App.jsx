@@ -65,15 +65,15 @@ function App() {
           path: "/gig/:id",
           element: <Gig />,
         },
+        {
+          path: "/register",
+          element: <Register />,
+        },
+        {
+          path: "/login",
+          element: <Login />,
+        },
       ],
-    },
-    {
-      path: "/register",
-      element: <Register />,
-    },
-    {
-      path: "/login",
-      element: <Login />,
     },
   ]);
 
