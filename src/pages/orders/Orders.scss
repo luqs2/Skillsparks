@@ -8,7 +8,7 @@
       width: 100%;
       max-width: 1200px; // Makes it responsive by limiting max width
       padding: 40px 20px;
-      background: rgba(255, 255, 255, 0.15); // Glassmorphism background
+      background: rgba(97, 110, 226, 0.281); // Glassmorphism background
       box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); // Subtle shadow for depth
       border-radius: 16px;
       backdrop-filter: blur(10px); // Frosted glass effect
@@ -43,7 +43,7 @@
         border-collapse: collapse;
   
         th, td {
-          padding: 15px;
+          padding: 10px;
           text-align: left;
         }
   
@@ -70,7 +70,7 @@
           }
   
           .message {
-            width: 25px;
+            width: 20px;
             cursor: pointer;
             transition: transform 0.3s ease;
   

@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import './Navbar.scss';
-import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import newRequest from '../../utils/newRequest';
+import defaultAvatar from "/Public/img/noavatar.png";
 
 const Navbar = () => {
   const [active, setActive] = useState(false);
   const [open, setOpen] = useState(false);
 
   const { pathname } = useLocation();
+  const navigate = useNavigate();
 
   const isActive = () => {
     window.scrollY > 0 ? setActive(true) : setActive(false);
@@ -20,8 +22,7 @@ const Navbar = () => {
     };
   }, []);
 
-  // Simulating the current user (logged in state) update fix login button 
-  const currentUser = JSON.parse(localStorage.getItem("currentUser"))
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
   const handleLogout = async () => {
     try {
@@ -31,7 +32,7 @@ const Navbar = () => {
     } catch (err) {
       console.log(err);
     }
-   };
+  };
 
   return (
     <div className={active || pathname !== '/' ? 'navbar active' : 'navbar'}>
@@ -43,21 +44,19 @@ const Navbar = () => {
         </Link>
 
         <div className="links">
-          <Link className="link"></Link>
           <Link className="link">Available Gig</Link>
           <Link className="link">Become Provider</Link>
 
-          {/* Conditionally render "Sign in" if currentUser is not defined */}
           {!currentUser && <Link className="link" to="/Login">Sign in</Link>}
-
           {!currentUser?.isSeller && <span>Become seller</span>}
           <Link to="/Register">
-          {!currentUser && <button>Join</button>}
-          </Link>         
+            {!currentUser && <button>Join</button>}
+          </Link>
+
           {currentUser && (
             <div className="user" onClick={() => setOpen(!open)}>
               <img
-                src={currentUser?.img || "./Public/img/noavatar.png"}
+                src={currentUser?.img || defaultAvatar}
                 alt="user profile"
               />
               <span>{currentUser?.username}</span>
@@ -65,23 +64,13 @@ const Navbar = () => {
                 <div className="options">
                   {currentUser?.isSeller && (
                     <>
-                      <Link className="link" to="/Mygigs">
-                        Gigs
-                      </Link>
-                      <Link className="link" to="/add">
-                        Add New Gig
-                      </Link>
+                      <Link className="link" to="/Mygigs">Gigs</Link>
+                      <Link className="link" to="/add">Add New Gig</Link>
                     </>
                   )}
-                  <Link className="link" to="/orders">
-                    Orders
-                  </Link>
-                  <Link className="link" to="/messages">
-                    Messages
-                  </Link>
-                  <Link className="link" onClick={handleLogout}>
-                    Logout
-                  </Link>
+                  <Link className="link" to="/orders">Orders</Link>
+                  <Link className="link" to="/messages">Messages</Link>
+                  <Link className="link" onClick={handleLogout}>Logout</Link>
                 </div>
               )}
             </div>
@@ -90,38 +79,17 @@ const Navbar = () => {
       </div>
 
       {active || pathname !== '/' ? (
-        <>
-          <hr />
-          <div className="menu">
-            <Link className="link menuLink" to="/">
-              Graphics & Design
-            </Link>
-            <Link className="link menuLink" to="/">
-              Video & Animation
-            </Link>
-            <Link className="link menuLink" to="/">
-              Writing & Translation
-            </Link>
-            <Link className="link menuLink" to="/">
-              AI Services
-            </Link>
-            <Link className="link menuLink" to="/">
-              Digital Marketing
-            </Link>
-            <Link className="link menuLink" to="/">
-              Music & Audio
-            </Link>
-            <Link className="link menuLink" to="/">
-              Programming & Tech
-            </Link>
-            <Link className="link menuLink" to="/">
-              Business
-            </Link>
-            <Link className="link menuLink" to="/">
-              Lifestyle
-            </Link>
-          </div>
-        </>
+        <div className="menu">
+          <Link className="link menuLink" to="/">Graphics & Design</Link>
+          <Link className="link menuLink" to="/">Video & Animation</Link>
+          <Link className="link menuLink" to="/">Writing & Translation</Link>
+          <Link className="link menuLink" to="/">AI Services</Link>
+          <Link className="link menuLink" to="/">Digital Marketing</Link>
+          <Link className="link menuLink" to="/">Music & Audio</Link>
+          <Link className="link menuLink" to="/">Programming & Tech</Link>
+          <Link className="link menuLink" to="/">Business</Link>
+          <Link className="link menuLink" to="/">Lifestyle</Link>
+        </div>
       ) : null}
     </div>
   );

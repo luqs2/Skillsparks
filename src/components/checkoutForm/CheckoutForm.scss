@@ -1,0 +1,82 @@
+#payment-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background-color: rgba(78, 90, 196, 0.712); // Light Purple Background
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  
+    #link-authentication-element,
+    #payment-element {
+      width: 100%;
+      max-width: 400px;
+      padding: 10px;
+      border: 1px solid lightblue; // Light Blue Divider
+      border-radius: 8px;
+      background-color: #f5f1f1; // Off-white background
+    }
+  
+    #submit {
+      background-color: rgb(249, 111, 42); // Light Pink Button Background
+      color: #f5f1f1; // Off-white Text
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+  
+      &:hover {
+        background-color: rgb(173, 79, 32); // Lighter Pink (Button Hover Background)
+      }
+  
+      &:disabled {
+        background-color: rgba(163, 9, 127, 0.45); // Disabled state color (Active Tab Color)
+        cursor: not-allowed;
+      }
+  
+      #button-text {
+        font-size: 16px;
+      }
+  
+      #spinner {
+        border: 2px solid #f5f1f1; // Off-white spinner color
+        border-top: 2px solid rgb(249, 111, 42); // Light Pink Spinner
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        animation: spin 1s linear infinite;
+      }
+  
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    }
+  
+    #payment-message {
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 14px;
+      color: #7e7e7e; // Dark Gray Text
+      background-color: rgba(101, 119, 221, 0.2); // Soft Purple Background
+      text-align: center;
+  
+      &.error {
+        color: #f5c8b1; // Light Peach (Error Text)
+        background-color: rgba(248, 186, 237, 0.7); // Light Pink (Error Background)
+      }
+  
+      &.success {
+        color: rgb(249, 111, 42); // Light Pink Button Text
+      }
+    }
+  }
+  

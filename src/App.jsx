@@ -13,17 +13,23 @@ import Messages from "./pages/messages/Messages";
 import Message from "./pages/message/Message";
 import MyGigs from "./pages/myGigs/MyGigs";
 import background from "./assets/img/background.png"; // Corrected path to image in src directory
-//import App from "./App.scss";
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import Pay from "./pages/pay/Pay";
+import Success from "./pages/success/Success";
 
-
+const queryClient = new QueryClient();
 
 function App() {
   const Layout = () => {
     return (
       <div className="app">
-        <Navbar />
-        <Outlet />
-        <Footer />
+        <QueryClientProvider client={queryClient}>
+          <div className="mainContent">
+            <Navbar />
+            <Outlet /> {/* Dynamic content will be rendered here */}
+          </div>
+          <Footer />
+        </QueryClientProvider>
       </div>
     );
   };
@@ -73,11 +79,18 @@ function App() {
           path: "/login",
           element: <Login />,
         },
+        {
+          path: "/pay/:id",
+          element: <Pay />,
+        },
+        {
+          path: "/success",
+          element: <Success />,
+        },
       ],
     },
   ]);
 
-  // Return the div with background styling and the RouterProvider
   return (
     <div
       style={{
@@ -85,8 +98,9 @@ function App() {
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        minHeight: "100vh",
-        width: "100%",
+        minHeight: "100vh", // Ensuring full height
+        display: "flex", // To support the flexbox layout
+        flexDirection: "column", // Ensures vertical layout
       }}
     >
       <RouterProvider router={router} />

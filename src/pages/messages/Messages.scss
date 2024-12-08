@@ -1,140 +1,121 @@
 .messages {
-    display: flex;
-    justify-content: center;
-    color: #555;
-    padding: 20px;
-  
-    .container {
+  display: flex;
+  justify-content: center;
+  color: #2d2d2e; /* Slightly lighter color for table rows */
+  padding: 20px;
+
+  .container {
+    width: 100%;
+    max-width: 1200px; /* Ensures responsiveness by limiting max width */
+    padding: 40px 20px;
+    background: rgba(125, 142, 243, 0.281); /* Glassmorphism background */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    border-radius: 16px;
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    overflow-x: auto; /* Ensures it doesn’t break on smaller screens */
+
+    .title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    table {
       width: 100%;
-      max-width: 1200px; // Makes it responsive by limiting max width
-      padding: 40px 20px;
-      background: rgba(255, 255, 255, 0.15); // Glassmorphism background
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); // Subtle shadow for depth
-      border-radius: 16px;
-      backdrop-filter: blur(10px); // Frosted glass effect
-      -webkit-backdrop-filter: blur(10px); // For Safari
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      overflow-x: auto; // Ensures it doesn’t break on smaller screens
-  
-      .title {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 20px;
+      border-collapse: collapse;
+
+      th,
+      td {
+        padding: 15px;
+        text-align: left;
       }
-  
-      table {
-        width: 100%;
-        border-collapse: collapse;
-  
-        th, td {
-          padding: 15px;
-          text-align: left;
-        }
-  
-        th {
-          font-weight: bold;
-          font-size: 16px;
-          color: #333;
-        }
-  
-        td {
-          font-size: 14px;
-          color: #555;
-  
-          sup {
-              font-size: 10px; // Reduced size for superscripts
-              color: #888;
-            }
-            
-            .image {
-                width: 50px;
-                height: 50px;
-                object-fit: cover;
-                border-radius: 8px;
-        }
-        
-        .message {
-            width: 25px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            
-            &:hover {
-                transform: scale(1.1); // Enlarge slightly on hover
-            }
-            
-            
-        }
-          button {
-            background-color: rgba(221, 55, 193, 0.7);
-            color: #fff;
-            font-weight: 600;
-            padding: 12px 25px;
-            border-radius: 10px;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    
-            &:hover {
-                background-color: rgba(221, 55, 193, 0.85);
-              box-shadow: 0px 4px 20px rgba(232, 43, 229, 0.4);
-            }
-        }
-        }
-  
-        tr {
-          transition: background-color 0.3s ease;
-          &:active{
-            background-color: rgba(197, 10, 138, 0.795); 
-          }
-          
-  
-          &:hover {
-              background-color: rgba(255, 255, 255, 0.2); // Slight hover effect for rows
-          }
-        }
+
+      th {
+        font-weight: bold;
+        font-size: 16px;
+        color: #2d2d2e; /* Slightly lighter color for table rows */
       }
-    }
-  
-    @media (max-width: 768px) {
-      .container {
-        padding: 20px 10px;
-      }
-  
-      table {
-        th, td {
-          font-size: 12px;
-          padding: 10px;
-        }
-  
-        .image {
-          width: 40px;
-          height: 40px;
-        }
-      }
-    }
-  
-    @media (max-width: 480px) {
-      .container {
-        padding: 15px 5px;
-      }
-  
-      .title button {
-        padding: 10px 15px;
+
+      td {
         font-size: 14px;
-      }
-  
-      table {
-        th, td {
-          font-size: 11px;
-          padding: 8px;
+        color: #2d2d2e; /* Slightly lighter color for table rows */
+
+        button {
+          background-color: #f96e2a; /* Gold color for the action button */
+          padding: 10px 20px;
+          color: white;
+          font-weight: 500;
+          border: none;
+          font-size: 15px;
+          cursor: pointer;
+          border-radius: 5px;
+          backdrop-filter: blur(5px); /* Glassmorphism effect with bluish tint */
+          -webkit-backdrop-filter: blur(5px); /* For Safari */
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+
+          &:hover {
+            background-color: #333333; /* Dark gray on hover */
+            color: white;
+          }
+
+          &:active {
+            background-color: #f9b02a; /* Light blue on active */
+            color: white;
+          }
         }
-  
-        .image {
-          width: 35px;
-          height: 35px;
+      }
+
+      tr {
+        transition: background-color 0.3s ease;
+
+        &.active {
+          background-color: rgba(42, 56, 249, 0.2); /* Highlight color for unread messages */
+        }
+
+        &:hover {
+          background-color: rgba(120, 108, 228, 0.2); /* Slight hover effect for rows */
+        }
+
+        &:active {
+          background-color: rgba(43, 56, 232, 0.2); /* Light hover effect for active rows */
         }
       }
     }
   }
-  
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 20px 10px;
+    }
+
+    table {
+      th,
+      td {
+        font-size: 12px;
+        padding: 10px;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .container {
+      padding: 15px 5px;
+    }
+
+    .title button {
+      padding: 10px 15px;
+      font-size: 14px;
+    }
+
+    table {
+      th,
+      td {
+        font-size: 11px;
+        padding: 8px;
+      }
+    }
+  }
+}

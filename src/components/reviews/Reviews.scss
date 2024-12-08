@@ -1,0 +1,152 @@
+.reviews {
+  // Container for the reviews section
+  background-color: #fff;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
+  // Header for the reviews section
+  h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: #333;
+  }
+
+  // Add review section header
+  .title {
+    font-size: 1.25rem;
+    text-align: left;
+    color: #333;
+  }
+
+  // Add a review form (compact styling)
+  .add {
+    display: flex;
+    align-items: baseline;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 20px;
+    width: 50%; // Full width
+    max-width: 600px; // Limit width for better alignment
+    margin-left: auto;
+    margin-right: auto;
+
+    .addForm {
+      display: flex;
+      flex-direction: column; // Stack elements vertically
+      gap: 15px;
+
+      // Input field for review description
+      input {
+        padding: 10px;
+        width: 700px; // Full width input
+        max-width: 500px; // Limit max width for the input
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 1rem;
+        outline: none;
+
+        &::placeholder {
+          color: #aaa;
+        }
+
+        &:focus {
+          border-color: #4CAF50;
+        }
+      }
+
+      // Star Rating Section
+      .starRating {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+
+        .star {
+          font-size: 1.5rem;
+          cursor: pointer;
+          color: #ddd; // Default color for stars
+          transition: color 0.3s;
+
+          &:hover,
+          &.selected {
+            color: #ffcc00; // Highlight color for selected stars
+          }
+        }
+      }
+
+      // Submit Button with updated style
+      button {
+        background-color: #F96E2A; /* Gold for the action button */
+        padding: 10px;
+        color: white;
+        font-weight: 500;
+        border: none;
+        font-size: 18px;
+        cursor: pointer;
+        border-radius: 5px;
+        backdrop-filter: blur(5px); /* Glassmorphism effect */
+
+        &:hover {
+          background-color: #333333; /* Dark gray on hover */
+          color: white;
+        }
+
+        &:active {
+          background-color: #f9b02a; /* Blue on active */
+          color: white;
+        }
+
+        &:disabled {
+          background-color: #ccc;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+
+  // Reviews List Styling
+  .reviewsList {
+    margin-top: 30px;
+
+    .review {
+      margin-bottom: 20px;
+      padding: 15px;
+      background-color: #fafafa;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+      .reviewText {
+        font-size: 1.1rem;
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      .reviewRating {
+        font-size: 1rem;
+        color: #4CAF50;
+      }
+    }
+  }
+
+  // Responsive adjustments for smaller screens
+  @media (max-width: 768px) {
+    .reviews {
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    .add {
+      padding: 15px;
+    }
+
+    .addForm {
+      gap: 10px;
+    }
+
+    button {
+      padding: 10px;
+    }
+  }
+}
