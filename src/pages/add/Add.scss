@@ -1,130 +1,281 @@
 .add {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh; /* Full height for vertical centering */
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0)); /* Subtle gradient background */
-    padding: 20px;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  color: #7e7e7e; // Dark Gray (Text in Options)
+}
+
+/* Container Styling */
+.add .container {
+  width: 100%;
+  max-width: 1200px;
+  background: rgba(101, 119, 221, 0.2); // Soft Purple Background
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); // Subtle shadow
+  border-radius: 16px;
+  padding: 40px 20px;
+  backdrop-filter: blur(10px); // Frosted glass effect
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Heading Styling */
+.add .container h1 {
+  font-size: 2rem;
+  color: #3f3e3e; // Off-white
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Section Wrapper */
+.add .container .sections {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Info and Details Section */
+.add .container .sections .info,
+.add .container .sections .details {
+  flex: 1;
+  min-width: 300px;
+  padding: 20px;
+  background: rgba(186, 197, 248, 0.7); // Light Pink (Tab Hover Background)
+  border-radius: 12px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Label Styling */
+.add .container .sections label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1rem;
+  color: #3f3e3e; // Dark Gray
+  font-weight: bold;
+}
+
+/* Input, Select, and Textarea Styling */
+.add .container .sections input,
+.add .container .sections select,
+.add .container .sections textarea {
+  width: 90%;
+  padding: 10px 12px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(101, 119, 221, 0.2); // Soft Purple
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #3f3e3e;
+  transition: all 0.3s ease;
+}
+
+.add .container .sections input:focus,
+.add .container .sections select:focus,
+.add .container .sections textarea:focus {
+  outline: none;
+  border-color: rgba(9, 63, 163, 0.45); // Active Tab Color
+  box-shadow: 0 0 8px rgba(9, 63, 163, 0.45);
+}
+
+.add .container .sections textarea {
+  resize: none;
+}
+
+/* Image Section */
+.add .container .sections .image {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Image Input */
+.add .container .sections .image .imagesInput {
+  display: flex;
+  flex-direction: column;
+}
+
+.add .container .sections .image .imagesInput input {
+  margin-bottom: 5px;
+}
+
+/* Upload Button */
+.add .container .sections .image button {
+  align-self: flex-start;
+  padding: 10px 20px;
+}
+
+/* Add Features Section */
+.add .container .sections .add {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.add .container .sections .add input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid rgba(101, 119, 221, 0.2);
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.add .container .sections .add button {
+  padding: 10px 15px;
+  background-color: #f96e2a; /* Gold for the action button */
+  color: white;
+  font-weight: 500;
+  border: none;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.add .container .sections .add button:hover {
+  background-color: #333333; /* Dark gray on hover */
+}
+
+.add .container .sections .add button:active {
+  background-color: #f9b02a; /* Blue on active */
+}
+
+/* Added Feature Items */
+.add .container .sections .addedfeature .item {
+  margin-bottom: 10px;
+}
+
+.add .container .sections .addedfeature .item button {
+  background-color: transparent;
+  color: #f96e2a; // Button text color
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+/* General Buttons */
+.add .container .sections button {
+  background-color: #f96e2a; /* Gold for the action button */
+  padding: 10px;
+  color: white;
+  font-weight: 500;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  backdrop-filter: blur(5px); /* Glassmorphism effect */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.add .container .sections button:hover {
+  background-color: #333333; /* Dark gray on hover */
+}
+
+.add .container .sections button:active {
+  background-color: #f9b02a; /* Blue on active */
+}
+/* Added Feature Section */
+.add .container .sections .addedfeature {
+  display: flex;
+  flex-wrap: wrap; // Wraps items to the next line when needed
+  gap: 10px; // Spacing between items
   
-    .container {
-      width: 100%; /* Responsive width */
-      max-width: 1200px; /* Reduced maximum width for a more compact layout */
-      padding: 30px; /* Reduced padding */
-      background: rgba(255, 255, 255, 0.15); /* Glassmorphism effect */
-      backdrop-filter: blur(15px);
-      border-radius: 15px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      transition: all 0.3s ease;
-  
-      h1 {
-        margin-bottom: 20px;
-        font-size: 24px; /* Reduced size for a more compact heading */
-        color: rgba(50, 50, 50, 0.85); /* Darker color for better contrast */
-        font-weight: 500;
-      }
-  
-      .sections {
-        display: flex;
-        justify-content: space-between;
-        gap: 30px; /* Reduced gap for compactness */
-  
-        label {
-          color: rgba(80, 80, 80, 0.85); /* Softer color for labels */
-          font-size: 16px; /* Slightly smaller font size */
-          font-weight: 400;
-        }
-  
-        .info,
-        .details {
-          flex: 1; /* Equal width for each section */
-          display: flex;
-          flex-direction: column;
-          gap: 15px; /* Consistent spacing between inputs */
-  
-          input,
-          select,
-          textarea {
-            padding: 15px; /* Reduced padding for inputs */
-            font-size: 14px; /* Slightly smaller font size */
-            background: rgba(255, 255, 255, 0.2); /* Light glass effect */
-            border: 1px solid rgba(200, 200, 200, 0.5);
-            border-radius: 10px;
-            color: rgba(50, 50, 50, 0.85); /* Professional text color */
-            transition: box-shadow 0.3s ease, background-color 0.3s ease;
-  
-            &:focus {
-              box-shadow: 0 0 10px rgba(50, 150, 255, 0.5); /* Subtle focus effect */
-              outline: none; /* Remove default outline */
-            }
-          }
-  
-          button {
-            padding: 15px; /* Reduced button padding */
-            font-size: 16px; /* Consistent font size */
-            font-weight: 500;
-            background-color: #1dbf73; /* Modern green */
-            border: none;
-            border-radius: 12px;
-            color: white;
-            cursor: pointer;
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  
-            &:hover {
-              background-color: #17a562; /* Darker green on hover */
-              box-shadow: 0 8px 30px rgba(23, 165, 98, 0.4); /* Lift effect */
-            }
-          }
-        }
-      }
-    }
-  
-    /* Responsiveness */
-    @media (max-width: 768px) {
-      .container {
-        padding: 20px; /* Reduced padding for tablets */
-        max-width: 90%; /* Make it more flexible on smaller screens */
-      }
-  
-      .sections {
-        flex-direction: column; /* Stack sections for mobile */
-        gap: 20px; /* Adjusted gap for smaller screens */
-      }
-  
-      input,
-      select,
-      textarea {
-        font-size: 14px; /* Smaller font size for mobile */
-        padding: 12px; /* Reduced padding */
-      }
-  
-      button {
-        font-size: 14px; /* Smaller button font size */
-        padding: 10px; /* Reduced button padding */
-      }
-    }
-  
-    @media (max-width: 576px) {
-      .container {
-        padding: 15px; /* Further reduced padding for mobile */
-      }
-  
-      h1 {
-        font-size: 20px; /* Adjusted heading size */
-      }
-  
-      input,
-      select,
-      textarea {
-        font-size: 13px; /* Smaller text */
-        padding: 10px; /* Smaller padding */
-      }
-  
-      button {
-        font-size: 13px; /* Consistent button size */
-        padding: 8px; /* Reduced padding for mobile */
-        width: 100%; /* Full-width button on mobile */
-      }
-    }
+  background-color: transparent; // Transparent background
+  padding: 10px;
+  border-radius: 8px; // Rounded corners
+  color: red; // Red text color for the section
+}
+
+/* Individual Feature Item */
+.add .container .sections .addedfeature .item {
+  flex: 0 1 auto; // Allows items to adjust their width dynamically
+  display: flex;
+  align-items: center;
+}
+
+/* Feature Button Styling */
+.add .container .sections .addedfeature .item button {
+  background-color: transparent; // Transparent button background
+  color: rgb(255, 0, 0); // Red button text
+  border: 1px solid red; // Red border for buttons
+  padding: 5px 10px; // Button padding
+  border-radius: 8px; // Rounded corners
+  font-size: 0.9rem; // Font size
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px; // Space between text and "X"
+
+  &:hover {
+    background-color: red; // Red background on hover
+    color: white; // White text on hover
   }
-  
+
+  &:active {
+    background-color: #aa0000; // Darker red background on active
+    border-color: #aa0000; // Matching darker red border
+  }
+}
+
+/* Styling for the "X" span */
+.add .container .sections .addedfeature .item button span {
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .add .container {
+    max-width: 1000px;
+    padding: 30px 15px;
+  }
+
+  .add .container h1 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .add .container .sections {
+    flex-direction: column;
+  }
+
+  .add .container .sections .info,
+  .add .container .sections .details {
+    flex: none;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .add .container {
+    padding: 20px 10px;
+  }
+
+  .add .container h1 {
+    font-size: 1.5rem;
+  }
+
+  .add .container .sections .info,
+  .add .container .sections .details {
+    padding: 15px;
+  }
+
+  .add .container .sections label {
+    font-size: 0.9rem;
+  }
+
+  .add .container .sections input,
+  .add .container .sections select,
+  .add .container .sections textarea {
+    font-size: 0.9rem;
+  }
+
+  .add .container .sections button {
+    font-size: 0.9rem;
+    padding: 8px 10px;
+  }
+}
